@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/comp426-2022-fall/a02-edcho2019#readme",
   "bin": {
-    "galosh.js": "./cli.js"
+    "galosh.js": "cli.js"
   },
   "type": "module",
   "dependencies": {

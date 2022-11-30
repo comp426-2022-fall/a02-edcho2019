@@ -17,22 +17,26 @@ if (args.h != undefined) {
     process.exit(0);
 }
 
+var latitude = 0;
+var longitude = 0;
+var timezone = 0;
+
 if (args.n == undefined) {
-    var latitude = Math.round(args.s * -100) / 100;
+    latitude = Math.round(args.s * -100) / 100;
 } else {
-    var latitude = Math.round(args.n * 100) / 100;
+    latitude = Math.round(args.n * 100) / 100;
 }
 
 if (args.e == undefined) {
-    var longitude = Math.round(args.w * -100) / 100;
+    longitude = Math.round(args.w * -100) / 100;
 } else {
-    var longitude = Math.round(args.e * 100) / 100;
+    longitude = Math.round(args.e * 100) / 100;
 }
 
 if (args.z == undefined) {
-    var timezone = moment.tz.guess();
+    timezone = moment.tz.guess();
 } else {
-    var timezone = args.z;
+    timezone = args.z;
 }
 
 // Ask for a response
@@ -46,19 +50,19 @@ if (args.j != undefined) {
     process.exit(0);
 }
 
-const days = args.d
+const numDays = args.d
 
-if (days == 0) {
+if (numDays == 0) {
     if (data.daily.precipitation_hours[0] > 0) {
         console.log('You might need your galoshes today.');
     } else {
         console.log('You will not need your galoshes today.');
     }
-} else if (days > 1) {
+} else if (numDays > 1) {
     if (data.daily.precipitation_hours[days] > 0) {
-        console.log('You might need your galoshes in ' + days + ' days.');
+        console.log('You might need your galoshes in ' + numDays + ' days.');
     } else {
-        console.log('You will not need your galoshes in ' + days + ' days.');
+        console.log('You will not need your galoshes in ' + numDays + ' days.');
     }
 } else {
     if (data.daily.precipitation_hours[1] > 0) {
